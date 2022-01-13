@@ -5,6 +5,20 @@
 //  Created by Goutham Meesala on 05/12/21.
 //
 
+//APIClient - no need-
+// connectivityMonitor - internet connection (it will check the connection)
+//Just in case network connectivity issue //Used guard Else is connected
+//InvalidUrl
+//Nointernet
+//noData
+//self.isConnected = true // setting true internet on
+//self.isConnected = false// setting false internet off
+//self.isBusy = true - one by one. if api call happened... but the method hits again then api call will go again... so by avoiding the continuous call. I used isbusy.
+//didscroll(fetchFeeds)thismethod... it is calling atleast 60-70 times...isbusy set in feedsviewmodel....if it is "isbusy" then it wont go to "feedsviewmodel" isbusy=false then guard true in feedsviewmodel then apiClient.fetchFeeds will call... so there wont be multiple hits if we do pagination.
+
+
+
+
 import Foundation
 import Network
 
@@ -18,12 +32,13 @@ class APIClient {
         connectivityMonitor.pathUpdateHandler = { pathUpdateHandler in
             if pathUpdateHandler.status == .satisfied {
                 print("Internet connection is on.")
-                self.isConnected = true
+                self.isConnected = true // setting true internet on
             } else {
                 print("There's no internet connection.")
-                self.isConnected = false
+                self.isConnected = false// setting false internet off
             }
         }
+        //checking here continuously internet is on or not
         let queue = DispatchQueue(label: "InternetConnectionMonitor")
         connectivityMonitor.start(queue: queue)
     }
@@ -64,7 +79,7 @@ extension APIClient {
             completion([], APIError.noInternet)
             return
         }
-        self.isBusy = true
+        self.isBusy = true //if api call happened... but the method hits again then api call will go again... so by avoiding the continuous call. I used isbusy.
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             threadSafeCall {
                 self.isBusy = false

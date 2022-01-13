@@ -4,6 +4,7 @@
 //
 //  Created by Goutham Meesala on 05/12/21.
 //
+// viewmodel - will do api call calling from feedsviewcontroller.
 
 import UIKit
 

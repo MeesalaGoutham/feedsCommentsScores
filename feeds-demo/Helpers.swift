@@ -5,6 +5,15 @@
 //  Created by Goutham Meesala on 05/12/21.
 //
 
+//ThreadSafeCall - I have used to call the UI operation on Main thread.
+//Anchor:-error
+//To program the UI Design through programmatically - for display purpose
+//EG:- Comment, score, like order and alignment.
+//I wasn’t used StoryBoard. So I went to programmatically. (So I went with this helper function)
+//Top , Bottom, right , left
+//All padding purpose.
+
+
 import UIKit
 
 /**

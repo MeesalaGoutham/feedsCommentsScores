@@ -4,7 +4,8 @@
 //
 //  Created by Goutham Meesala on 05/12/21.
 //
-
+//design purpose
+// feed will set here through cellforrowatindex from feedsVC - settermethod.
 import UIKit
 import SDWebImage
 
@@ -55,7 +56,7 @@ class FeedCell: UITableViewCell {
         feedScoreLabel.text = "Score: " + (feed.score?.toString() ?? "")
         
         if let urlString = feed.thumbnail, let url = URL(string: urlString) {
-            feedImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "glasses"))
+            feedImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "glasses"))//download and set the image
         }
     }
     

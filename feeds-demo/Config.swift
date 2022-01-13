@@ -5,6 +5,14 @@
 //  Created by Goutham Meesala on 05/12/21.
 //
 
+//2 URL’s
+//If none of the cases then default - like unknown error
+//Feed url
+//URL declare. If any errors from service. Then not going as it is error. Just used some custom urls.
+//So used
+//APIErrors
+//feedURL_nextURL
+
 import Foundation
 
 struct Config {
